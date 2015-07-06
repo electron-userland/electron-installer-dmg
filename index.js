@@ -50,20 +50,17 @@ module.exports = function(opts, done) {
   if (process.platform !== 'darwin') {
     return done(new Error('Must be run on OSX'));
   }
-  /**
-   * @todo (imlucas): Default to atom.icns and make a default background.
-   */
   if (!opts.background) {
-    return done(new Error('Missing option `background`'));
+    opts.background = path.resolve(__dirname, 'resources/mac/background.png');
+  } else {
+    opts.background = path.resolve(opts.background);
   }
   if (!opts.icon) {
-    return done(new Error('Missing option `icon`'));
+    opts.icon = path.resolve(__dirname, 'resources/mac/atom.icns');
+  } else {
+    opts.icon = path.resolve(opts.icon);
   }
 
-  debug('creating dmg');
-
-  opts.background = path.resolve(opts.background);
-  opts.icon = path.resolve(opts.icon);
   opts['icon-size'] = opts['icon-size'] || 80;
 
   opts.appPath = path.resolve(process.cwd(), opts.appPath);
