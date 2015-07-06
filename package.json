@@ -1,0 +1,34 @@
+{
+  "name": "electron-installer-dmg",
+  "description": "Create DMG installers for your electron apps.",
+  "version": "0.0.0",
+  "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
+  "homepage": "http://github.com/mongodb-js/electron-installer-dmg",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mongodb-js/electron-installer-dmg.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "ci": "mocha",
+    "check": "mongodb-js-precommit"
+  },
+  "precommmit": [
+    "check",
+    "test"
+  ],
+  "bin": {
+    "electron-installer-dmg": "bin/electron-installer-dmg.js"
+  },
+  "dependencies": {
+    "appdmg": "^0.3.2",
+    "debug": "^2.2.0",
+    "minimist": "^1.1.1"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint-config-mongodb-js": "^0.1.4",
+    "mocha": "^2.2.5",
+    "pre-commit": "^1.0.10"
+  }
+}
