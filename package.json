@@ -21,9 +21,11 @@
     "electron-installer-dmg": "bin/electron-installer-dmg.js"
   },
   "dependencies": {
-    "appdmg": "^0.3.2",
     "debug": "^2.2.0",
     "minimist": "^1.1.1"
+  },
+  "optionalDependencies": {
+    "appdmg": "^0.3.2"
   },
   "license": "Apache-2.0",
   "devDependencies": {

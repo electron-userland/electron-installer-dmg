@@ -5,10 +5,10 @@
 var fs = require('fs');
 var path = require('path');
 var os = require('os');
-var appdmg = require('appdmg');
 var debug = require('debug')('electron-installer-dmg');
 
 function build(opts, done) {
+  var appdmg = require('appdmg');
   var spec = {
     title: opts.name,
     contents: opts.contents,
@@ -47,6 +47,9 @@ function build(opts, done) {
 }
 
 module.exports = function(opts, done) {
+  if (process.platform !== 'darwin') {
+    return done(new Error('Must be run on OSX'));
+  }
   /**
    * @todo (imlucas): Default to atom.icns and make a default background.
    */
