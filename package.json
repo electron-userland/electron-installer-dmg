@@ -1,7 +1,7 @@
 {
   "name": "electron-installer-dmg",
   "description": "Create DMG installers for your electron apps.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
   "homepage": "http://github.com/mongodb-js/electron-installer-dmg",
   "repository": {
