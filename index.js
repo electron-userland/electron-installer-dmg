@@ -10,7 +10,7 @@ var debug = require('debug')('electron-installer-dmg');
 function build(opts, done) {
   var appdmg = require('appdmg');
   var spec = {
-    title: opts.name,
+    title: opts.title || opts.productName || opts.name,
     contents: opts.contents,
     icon: opts.icon,
     'icon-size': opts['icon-size'],
