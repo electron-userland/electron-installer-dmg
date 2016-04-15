@@ -33,6 +33,7 @@ Options:
   --version            Show version.
 
 ```
+
 ### API
 
 ```javascript

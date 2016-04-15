@@ -32,5 +32,14 @@
     "eslint-config-mongodb-js": "^0.1.4",
     "mocha": "^2.2.5",
     "pre-commit": "^1.0.10"
-  }
+  },
+  "keywords": [
+    "mongodb.js",
+    "electron",
+    "installer",
+    "electron-installer",
+    "gulpfriendly",
+    "dmg",
+    "electron create dmg"
+  ]
 }
