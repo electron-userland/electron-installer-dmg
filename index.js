@@ -36,12 +36,12 @@ function build(opts, done) {
     }).on('finish', function() {
       debug('appdmg finished!');
       debug('cleaning up temp config at `%s`', src);
-      fs.unlink(src, function(err) {
-        if (err) return done(err);
+      fs.unlink(src, function(err2) {
+        if (err2) return done(err2);
         done(null, opts);
       });
-    }).on('error', function(err) {
-      done(err);
+    }).on('error', function(err3) {
+      done(err3);
     });
   });
 }
@@ -69,25 +69,25 @@ module.exports = function(opts, done) {
   opts.overwrite = opts.overwrite || false;
 
   opts.contents = opts.contents || [
-      {
-        x: 448,
-        y: 344,
-        type: 'link',
-        path: '/Applications'
-      },
-      {
-        x: 192,
-        y: 344,
-        type: 'file',
-        path: opts.appPath
-      }
-      // {
-      //   x: 512,
-      //   y: 128,
-      //   type: 'file',
-      //   path: 'release-notes'
-      // }
-    ];
+    {
+      x: 448,
+      y: 344,
+      type: 'link',
+      path: '/Applications'
+    },
+    {
+      x: 192,
+      y: 344,
+      type: 'file',
+      path: opts.appPath
+    }
+    // {
+    //   x: 512,
+    //   y: 128,
+    //   type: 'file',
+    //   path: 'release-notes'
+    // }
+  ];
 
   fs.exists(opts.dmgPath, function(exists) {
     if (exists && !opts.overwrite) {
