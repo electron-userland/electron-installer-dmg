@@ -62,7 +62,8 @@ module.exports = function(opts, done) {
   }
 
   opts['icon-size'] = opts['icon-size'] || 80;
-
+  opts['out'] = opts['out'] || process.cwd();
+  
   opts.appPath = path.resolve(process.cwd(), opts.appPath);
   opts.dmgPath = path.resolve(opts.dmgPath || path.join(opts.out, opts.name + '.dmg'));
 
