@@ -70,6 +70,19 @@ The directory to put the DMG into. [Default: `process.cwd()`].
 `icon-size` - *Number*
 How big to make the icon for the app in the DMG. [Default: `80`].
 
+`format` - *String*
+Disk image format. [Default: `UDZO`].
+
+[Must be one of the following][spec]:
+
+- `UDRW` :arrow_right: read/write image
+- `UDRO` :arrow_right: read-only image
+- `UDCO` :arrow_right: ADC-compressed image
+- `UDZO` :arrow_right: zlib-compressed image
+- `UDBZ` :arrow_right: bzip2-compressed image
+- `ULFO` :arrow_right: lzfse-compressed image (macOS 10.11+ only)
+
+
 ##### callback
 
 `err` - *Error*
@@ -85,3 +98,4 @@ Apache 2.0
 [npm_url]: https://npmjs.org/package/electron-installer-dmg
 [electron-packager]: https://github.com/maxogden/electron-packager
 [appdmg]: https://github.com/LinusU/node-appdmg
+[spec]: https://github.com/LinusU/node-appdmg#specification

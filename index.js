@@ -14,7 +14,8 @@ function build(opts, done) {
     contents: opts.contents,
     icon: opts.icon,
     'icon-size': opts['icon-size'],
-    background: opts.background
+    background: opts.background,
+    format: opts.format
   };
   var contents = JSON.stringify(spec, null, 2);
 
@@ -62,12 +63,14 @@ module.exports = function(opts, done) {
   }
 
   opts['icon-size'] = opts['icon-size'] || 80;
-  opts['out'] = opts['out'] || process.cwd();
-  
+  opts.out = opts.out || process.cwd();
+
   opts.appPath = path.resolve(process.cwd(), opts.appPath);
   opts.dmgPath = path.resolve(opts.dmgPath || path.join(opts.out, opts.name + '.dmg'));
 
   opts.overwrite = opts.overwrite || false;
+
+  opts.format = opts.format || 'UDZO';
 
   opts.contents = opts.contents || [
     {
