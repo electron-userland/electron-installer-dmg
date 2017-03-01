@@ -34,6 +34,9 @@
     "mongodb-js-precommit": "^0.2.9",
     "pre-commit": "^1.0.10"
   },
+  "os": [
+    "darwin"
+  ],
   "keywords": [
     "mongodb.js",
     "electron",
