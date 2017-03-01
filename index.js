@@ -21,7 +21,7 @@ function build(opts, done) {
 
   debug('DMG spec is:\n', spec);
 
-  var src = path.resolve(os.tmpDir(), 'appdmg.json');
+  var src = path.resolve(os.tmpdir(), 'appdmg.json');
   debug('writing config to `%s`', src);
 
   fs.writeFile(src, contents, function(err) {
