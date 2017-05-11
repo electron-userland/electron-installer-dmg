@@ -27,6 +27,7 @@ Options:
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
   --background=<path>  Path to a PNG image to use as the background of the DMG.
+  --background-color=<color>  Background color (accepts css colors).
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
   -h --help            Show this screen.
@@ -55,6 +56,9 @@ The application name.
 `background` - *String*
 Path to the background for the DMG window.
 
+`background-color` - *String*
+Background color (accepts css colors)
+
 `icon` - *String*
 Path to the icon to use for the app in the DMG window.
 
@@ -81,6 +85,8 @@ Disk image format. [Default: `UDZO`].
 - `UDZO` :arrow_right: zlib-compressed image
 - `UDBZ` :arrow_right: bzip2-compressed image
 - `ULFO` :arrow_right: lzfse-compressed image (macOS 10.11+ only)
+
+
 
 
 ##### callback

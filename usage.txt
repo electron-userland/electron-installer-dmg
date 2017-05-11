@@ -10,6 +10,7 @@ Options:
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
   --background=<path>  Path to a PNG image to use as the background of the DMG.
+  --background-color=<color>  Background color (accepts css colors).
   --format=<format>    Disk image format. [Default: `UDZO`].
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
