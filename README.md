@@ -20,7 +20,7 @@ Usage: electron-installer-dmg <path/to/.app> <appname>
 Create DMG installers for your electron apps.
 
 Usage:
-  electron-packager ./FooBar-darwin-x64/FooBar.app FooBar
+  electron-installer-dmg ./FooBar-darwin-x64/FooBar.app FooBar
 
 Options:
   --out=<path>         The directory to put the DMG into. [Default: `process.cwd()`].
