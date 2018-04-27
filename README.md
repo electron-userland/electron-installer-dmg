@@ -30,6 +30,7 @@ Options:
   --background-color=<color>  Background color (accepts css colors).
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
+  --window="<object>"  Window size and position options. ex: "{size: {width: 100, height: 100}, position" {x: 0, y: 0}}"
   -h --help            Show this screen.
   --version            Show version.
 
