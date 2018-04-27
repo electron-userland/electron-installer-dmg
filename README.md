@@ -26,7 +26,7 @@ Options:
   --out=<path>         The directory to put the DMG into. [Default: `process.cwd()`].
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
-  --background=<path>  Path to a PNG image to use as the background of the DMG.
+  --background=<path>  Path to a PNG image to use as the background of the DMG. [Size: 658 x 498]
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
   -h --help            Show this screen.
@@ -53,7 +53,7 @@ The application name.
 **Optional**
 
 `background` - *String*
-Path to the background for the DMG window.
+Path to the background for the DMG window. Background image should be of size 658 × 498.
 
 `icon` - *String*
 Path to the icon to use for the app in the DMG window.
