@@ -93,6 +93,10 @@ module.exports = function(opts, done) {
     // }
   ];
 
+  if (typeof opts.contents === 'function') {
+    opts.contents = opts.contents(opts);
+  }
+
   fs.exists(opts.dmgPath, function(exists) {
     if (exists && !opts.overwrite) {
       debug('DMG already exists at `%s` and overwrite is false', opts.dmgPath);

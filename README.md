@@ -70,6 +70,22 @@ The directory to put the DMG into. [Default: `process.cwd()`].
 `icon-size` - *Number*
 How big to make the icon for the app in the DMG. [Default: `80`].
 
+`contents` - *Array* or *Function* that returns an Array of objects.
+The content that will appear in the window when user opens the `.dmg` file.
+[Default: Array of two icons, application and application destination folder].
+Array Example:
+```
+[ { x: 448, y: 344, type: 'link', path: '/Applications'},
+  { x: 192, y: 344, type: 'file', path: '/path/to/application.app'} ]
+```
+Function Example (more flexible for getting useful options used in creating dmg):
+```
+function (opts) {
+   return [ { x: 448, y: 344, type: 'link', path: '/Applications'},
+            { x: 192, y: 344, type: 'file', path: opts.appPath} ];
+}
+```
+
 `format` - *String*
 Disk image format. [Default: `UDZO`].
 
