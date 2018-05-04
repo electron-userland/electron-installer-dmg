@@ -14,6 +14,9 @@ Options:
   --format=<format>    Disk image format. [Default: `UDZO`].
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
-  --window="<object>"  Window size and position options. ex: "{size: {width: 100, height: 100}, position" {x: 0, y: 0}}"
+  --window.size.width=<integer> Sets window width
+  --window.size.height=<integer> Sets window height
+  --window.position.x=<integer> Sets window position's x coordinate
+  --window.position.y=<integer> Sets window position's y coordinate
   -h --help            Show this screen.
   --version            Show version.
