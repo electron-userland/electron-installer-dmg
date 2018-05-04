@@ -27,8 +27,13 @@ Options:
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
   --background=<path>  Path to a PNG image to use as the background of the DMG. [Size: 658 x 498]
+  --background-color=<color>  Background color (accepts css colors).
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
+  --window.size.width=<integer> Sets window width
+  --window.size.height=<integer> Sets window height
+  --window.position.x=<integer> Sets window position's x coordinate
+  --window.position.y=<integer> Sets window position's y coordinate
   -h --help            Show this screen.
   --version            Show version.
 
@@ -54,6 +59,9 @@ The application name.
 
 `background` - *String*
 Path to the background for the DMG window. Background image should be of size 658 × 498.
+
+`background-color` - *String*
+Background color (accepts css colors)
 
 `icon` - *String*
 Path to the icon to use for the app in the DMG window.

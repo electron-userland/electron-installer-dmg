@@ -15,7 +15,9 @@ function build(opts, done) {
     icon: opts.icon,
     'icon-size': opts['icon-size'],
     background: opts.background,
-    format: opts.format
+    format: opts.format,
+    'background-color': opts['background-color'],
+    window: opts.window
   };
   var contents = JSON.stringify(spec, null, 2);
 
