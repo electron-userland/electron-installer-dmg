@@ -104,8 +104,6 @@ Disk image format. [Default: `UDZO`].
 - `ULFO` :arrow_right: lzfse-compressed image (macOS 10.11+ only)
 
 
-
-
 ##### callback
 
 `err` - *Error*
