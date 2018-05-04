@@ -20,13 +20,13 @@ Usage: electron-installer-dmg <path/to/.app> <appname>
 Create DMG installers for your electron apps.
 
 Usage:
-  electron-packager ./FooBar-darwin-x64/FooBar.app FooBar
+  electron-installer-dmg ./FooBar-darwin-x64/FooBar.app FooBar
 
 Options:
   --out=<path>         The directory to put the DMG into. [Default: `process.cwd()`].
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
-  --background=<path>  Path to a PNG image to use as the background of the DMG.
+  --background=<path>  Path to a PNG image to use as the background of the DMG. [Size: 658 x 498]
   --background-color=<color>  Background color (accepts css colors).
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
@@ -55,7 +55,7 @@ The application name.
 **Optional**
 
 `background` - *String*
-Path to the background for the DMG window.
+Path to the background for the DMG window. Background image should be of size 658 × 498.
 
 `background-color` - *String*
 Background color (accepts css colors)
@@ -74,6 +74,22 @@ The directory to put the DMG into. [Default: `process.cwd()`].
 
 `icon-size` - *Number*
 How big to make the icon for the app in the DMG. [Default: `80`].
+
+`contents` - *Array* or *Function* that returns an Array of objects.
+The content that will appear in the window when user opens the `.dmg` file.
+[Default: Array of two icons, application and application destination folder].
+Array Example:
+```
+[ { x: 448, y: 344, type: 'link', path: '/Applications'},
+  { x: 192, y: 344, type: 'file', path: '/path/to/application.app'} ]
+```
+Function Example (more flexible for getting useful options used in creating dmg):
+```
+function (opts) {
+   return [ { x: 448, y: 344, type: 'link', path: '/Applications'},
+            { x: 192, y: 344, type: 'file', path: opts.appPath} ];
+}
+```
 
 `format` - *String*
 Disk image format. [Default: `UDZO`].
