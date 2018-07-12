@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const os = require('os');
 const debug = require('debug')('electron-installer-dmg');
@@ -84,46 +84,50 @@ module.exports = (immutableOpts, done) => {
 
   opts.dmgPath = path.resolve(opts.dmgPath || path.join(opts.out, `${opts.name}.dmg`));
 
-  opts.overwrite = opts.overwrite || false;
+  fs.mkdirs(path.dirname(opts.dmgPath), (mkdirErr) => {
+    if (mkdirErr) return done(mkdirErr);
 
-  opts.format = opts.format || 'UDZO';
+    opts.overwrite = opts.overwrite || false;
 
-  opts.contents = opts.contents || [
-    {
-      x: 448,
-      y: 344,
-      type: 'link',
-      path: '/Applications',
-    },
-    {
-      x: 192,
-      y: 344,
-      type: 'file',
-      path: opts.appPath,
-    },
-  ];
+    opts.format = opts.format || 'UDZO';
 
-  if (typeof opts.contents === 'function') {
-    opts.contents = opts.contents(opts);
-  }
+    opts.contents = opts.contents || [
+      {
+        x: 448,
+        y: 344,
+        type: 'link',
+        path: '/Applications',
+      },
+      {
+        x: 192,
+        y: 344,
+        type: 'file',
+        path: opts.appPath,
+      },
+    ];
 
-  fs.exists(opts.dmgPath, (exists) => {
-    if (exists && !opts.overwrite) {
-      debug('DMG already exists at `%s` and overwrite is false', opts.dmgPath);
-      const msg = `DMG already exists.  Run electron-installer-dmg again with \
+    if (typeof opts.contents === 'function') {
+      opts.contents = opts.contents(opts);
+    }
+
+    fs.exists(opts.dmgPath, (exists) => {
+      if (exists && !opts.overwrite) {
+        debug('DMG already exists at `%s` and overwrite is false', opts.dmgPath);
+        const msg = `DMG already exists.  Run electron-installer-dmg again with \
 \`--overwrite\` or remove the file and rerun. ${opts.dmgPath}`;
-      return done(new Error(msg));
-    }
+        return done(new Error(msg));
+      }
 
-    if (exists && opts.overwrite) {
-      debug('DMG already exists at `%s`.  Removing...', opts.dmgPath);
-      fs.unlink(opts.dmgPath, (unlinkErr) => {
-        if (unlinkErr) return done(unlinkErr);
+      if (exists && opts.overwrite) {
+        debug('DMG already exists at `%s`.  Removing...', opts.dmgPath);
+        fs.unlink(opts.dmgPath, (unlinkErr) => {
+          if (unlinkErr) return done(unlinkErr);
+          build(opts, done);
+        });
+      } else {
         build(opts, done);
-      });
-    } else {
-      build(opts, done);
-    }
+      }
+    });
   });
 };
 
