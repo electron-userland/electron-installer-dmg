@@ -1,7 +1,8 @@
 language: node_js
+cache: yarn
 node_js:
-  - '0.12'
-  - 'iojs'
   - 6
-  - 7
-script: 'npm run-script ci'
+  - 8
+  - 10
+os: osx
+script: 'yarn lint && yarn test'

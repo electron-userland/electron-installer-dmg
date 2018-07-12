@@ -2,37 +2,36 @@
   "name": "electron-installer-dmg",
   "description": "Create DMG installers for your electron apps.",
   "version": "1.0.0",
+  "main": "./src/index.js",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
-  "homepage": "http://github.com/mongodb-js/electron-installer-dmg",
+  "homepage": "http://github.com/electron-userland/electron-installer-dmg",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mongodb-js/electron-installer-dmg.git"
+    "url": "git://github.com/electron-userland/electron-installer-dmg.git"
   },
   "scripts": {
-    "test": "mocha",
-    "ci": "mocha",
-    "check": "mongodb-js-precommit"
+    "lint": "eslint src test bin",
+    "test": "mocha"
   },
-  "precommmit": [
-    "check",
-    "test"
-  ],
   "bin": {
     "electron-installer-dmg": "bin/electron-installer-dmg.js"
   },
   "dependencies": {
-    "debug": "^2.2.0",
+    "debug": "^3.1.0",
     "minimist": "^1.1.1"
   },
   "optionalDependencies": {
-    "appdmg": "^0.4.5"
+    "appdmg": "^0.5.2"
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "eslint-config-mongodb-js": "^2.2.0",
-    "mocha": "^3.1.2",
-    "mongodb-js-precommit": "^0.2.9",
-    "pre-commit": "^1.0.10"
+    "cross-zip": "^2.1.5",
+    "electron-download": "^4.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2"
   },
   "keywords": [
     "mongodb.js",
