@@ -67,7 +67,7 @@ Enable debug message output.
 `out` - *String*  
 The directory to put the DMG into. [Default: `process.cwd()`].
 
-`icon-size` - *Number*  
+`iconSize` - *Number*  
 How big to make the icon for the app in the DMG. [Default: `80`].
 
 `contents` - *Array* or *Function* that returns an Array of objects.  
@@ -97,6 +97,12 @@ Disk image format. [Default: `UDZO`].
 - `UDZO` :arrow_right: zlib-compressed image
 - `UDBZ` :arrow_right: bzip2-compressed image
 - `ULFO` :arrow_right: lzfse-compressed image (macOS 10.11+ only)
+
+`additionalDMGOptions` - *Object*
+Additional options to pass through to [`appdmg`](https://www.npmjs.com/package/appdmg)
+
+You can use this to set additional features like `background-color` and
+`code-sign`.  See the docs of the `appdmg` module for all possible options.
 
 
 ##### callback

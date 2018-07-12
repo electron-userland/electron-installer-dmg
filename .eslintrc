@@ -2,5 +2,8 @@
   "env": {
     "mocha": true
   },
-  "extends": "mongodb-js/node"
+  "rules": {
+    "consistent-return": "off"
+  },
+  "extends": "airbnb-base"
 }
