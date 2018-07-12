@@ -70,7 +70,7 @@ The directory to put the DMG into. [Default: `process.cwd()`].
 `icon-size` - *Number*  
 How big to make the icon for the app in the DMG. [Default: `80`].
 
-`contents` - *Array* or *Function* that returns an Array of objects. <br/>
+`contents` - *Array* or *Function* that returns an Array of objects.  
 The content that will appear in the window when user opens the `.dmg` file.
 [Default: Array of two icons, application and application destination folder].
 Array Example:
