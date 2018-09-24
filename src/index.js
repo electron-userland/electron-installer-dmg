@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const os = require('os');
 const debug = require('debug')('electron-installer-dmg');
+const crypto = require('crypto');
 
 function build(opts, done) {
   const appdmg = require('appdmg'); // eslint-disable-line
@@ -18,7 +19,8 @@ function build(opts, done) {
 
   debug('DMG spec is:\n', spec);
 
-  const specPath = path.resolve(os.tmpdir(), 'appdmg.json');
+  const randId = crypto.randomBytes(16).toString('hex');
+  const specPath = path.resolve(os.tmpdir(), `appdmg_${randId}.json'`);
   debug('writing config to `%s`', specPath);
 
   fs.writeFile(specPath, specContents, (specWriteErr) => {
