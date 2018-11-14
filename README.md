@@ -29,7 +29,7 @@ Options:
   --icon=<path>        Path to the icon file that will be the app icon in the DMG window.
   --icon-size=<px>     How big to make the icon for the app in the DMG. [Default: `80`].
   --background=<path>  Path to a PNG image to use as the background of the DMG. [Size: 658 x 498]
-  --title=<string>     The title of the produced DMG, which will be shown when mounted
+  --title=<string>     The title of the produced DMG, which will be shown when mounted.
   --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
   -h --help            Show this screen.
