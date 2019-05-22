@@ -17,8 +17,8 @@
     "electron-installer-dmg": "bin/electron-installer-dmg.js"
   },
   "dependencies": {
-    "debug": "^3.1.0",
-    "fs-extra": "^6.0.1",
+    "debug": "^4.1.1",
+    "fs-extra": "^8.0.1",
     "minimist": "^1.1.1"
   },
   "optionalDependencies": {
@@ -28,10 +28,10 @@
   "devDependencies": {
     "cross-zip": "^2.1.5",
     "electron-download": "^4.1.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "rimraf": "^2.6.2"
   },
   "keywords": [
