@@ -20,14 +20,14 @@ describe('electron-installer-dmg', () => {
   describe('with app', () => {
     const appPath = path.resolve(__dirname, 'fixture');
 
-    before(async () => {
+    before(async function downloadElectron() {
       this.timeout(120000);
 
       const zipPath = await download('2.0.4');
       await unzip(zipPath, appPath);
     });
 
-    it('should succeed in creating a DMG', async () => {
+    it('should succeed in creating a DMG', async function testCreate() {
       this.timeout(30000);
       const createDMG = require('../'); // eslint-disable-line global-require
       const dmgPath = path.resolve(__dirname, 'fixture.dmg');
