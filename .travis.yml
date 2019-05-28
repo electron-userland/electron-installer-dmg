@@ -4,4 +4,3 @@ node_js:
   - 8
   - 10
 os: osx
-script: 'yarn lint && yarn test'
