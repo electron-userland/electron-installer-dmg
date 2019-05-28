@@ -4,7 +4,9 @@ const os = require('os');
 const path = require('path');
 
 async function build(opts) {
-  const appdmg = require('appdmg'); // eslint-disable-line global-require, import/no-unresolved
+  // eslint-disable-next-line max-len
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies, import/no-unresolved
+  const appdmg = require('appdmg');
   const additionalDMGOptions = opts.additionalDMGOptions || {};
 
   const spec = {
