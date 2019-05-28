@@ -1,6 +1,6 @@
 const assert = require('assert');
 const { download } = require('@electron/get');
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const { promisify } = require('util');
 const rimraf = require('rimraf');
