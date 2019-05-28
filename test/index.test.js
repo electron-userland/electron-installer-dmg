@@ -39,7 +39,7 @@ describe('electron-installer-dmg', () => {
       assert(await fs.pathExists(dmgPath), 'dmg should exist');
     });
 
-    afterEach(async () => fs.unlink(`${appPath}.dmg`));
+    afterEach(() => fs.unlink(`${appPath}.dmg`));
 
     after(() => {
       rimraf.sync(appPath);
