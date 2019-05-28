@@ -29,8 +29,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
+    "@electron/get": "^1.1.0",
     "cross-zip": "^2.1.5",
-    "electron-download": "^4.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
