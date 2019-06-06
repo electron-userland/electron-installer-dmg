@@ -1,8 +1,10 @@
 language: node_js
 cache: yarn
 node_js:
-  - 6
   - 8
-  - 10
+  - 12
 os: osx
-script: 'yarn lint && yarn test'
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+\.\d+/

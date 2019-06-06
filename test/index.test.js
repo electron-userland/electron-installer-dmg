@@ -1,9 +1,12 @@
 const assert = require('assert');
-const electronDownload = require('electron-download');
-const fs = require('fs');
+const { download } = require('@electron/get');
+const fs = require('fs-extra');
 const path = require('path');
+const { promisify } = require('util');
 const rimraf = require('rimraf');
 const zip = require('cross-zip');
+
+const unzip = promisify(zip.unzip);
 
 describe('electron-installer-dmg', () => {
   before(() => {
@@ -17,33 +20,26 @@ describe('electron-installer-dmg', () => {
   describe('with app', () => {
     const appPath = path.resolve(__dirname, 'fixture');
 
-    before(function downloadElectron(done) {
+    before(async function downloadElectron() {
       this.timeout(120000);
 
-      electronDownload({
-        version: '2.0.4',
-      }, (downloadErr, zipPath) => {
-        if (downloadErr) return done(downloadErr);
-        zip.unzip(zipPath, appPath, done);
-      });
+      const zipPath = await download('2.0.4');
+      await unzip(zipPath, appPath);
     });
 
-    it('should succeed in creating a DMG', function testCreate() {
+    it('should succeed in creating a DMG', async function testCreate() {
       this.timeout(30000);
       const createDMG = require('../'); // eslint-disable-line global-require
       const dmgPath = path.resolve(__dirname, 'fixture.dmg');
-      return createDMG.p({
+      await createDMG({
         appPath,
         dmgPath,
         name: 'Test App',
-      }).then(() => {
-        assert(fs.existsSync(dmgPath), 'dmg should exist');
       });
+      assert(await fs.pathExists(dmgPath), 'dmg should exist');
     });
 
-    afterEach(() => {
-      fs.unlinkSync(`${appPath}.dmg`);
-    });
+    afterEach(() => fs.unlink(`${appPath}.dmg`));
 
     after(() => {
       rimraf.sync(appPath);
