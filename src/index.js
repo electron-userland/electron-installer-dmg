@@ -8,7 +8,7 @@ async function build(opts) {
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies, import/no-unresolved
   const appdmg = require('appdmg');
   const additionalDMGOptions = opts.additionalDMGOptions || {};
-  const icon = opts.icon ? { 'icon': opts.icon } : {}
+  const icon = opts.icon ? { icon: opts.icon } : {};
 
   const spec = {
     ...additionalDMGOptions,
@@ -17,7 +17,7 @@ async function build(opts) {
     'icon-size': opts['icon-size'],
     background: opts.background,
     format: opts.format,
-    ...icon
+    ...icon,
   };
 
   const specContents = JSON.stringify(spec, null, 2);
