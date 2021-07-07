@@ -34,14 +34,19 @@ Options:
   --overwrite          Overwrite any existing DMG.
   -h --help            Show this screen.
   --version            Show version.
-
 ```
 
 ### API
 
 ```javascript
-var createDMG = require('electron-installer-dmg')
-createDMG(opts, function done (err) { })
+const createDMG = require('electron-installer-dmg');
+
+async function buildDMG() {
+  await createDMG({
+    appPath: '/path/to/app.app',
+    name: 'MyApp'
+  });
+}
 ```
 #### createDMG(opts, callback)
 
@@ -77,13 +82,13 @@ How big to make the icon for the app in the DMG. [Default: `80`].
 `contents` - *Array* or *Function* that returns an Array of objects.
 The content that will appear in the window when user opens the `.dmg` file.
 [Default: Array of two icons, application and application destination folder].
-Array Example:
-```
+Array example:
+```javascript
 [ { x: 448, y: 344, type: 'link', path: '/Applications'},
   { x: 192, y: 344, type: 'file', path: '/path/to/application.app'} ]
 ```
-Function Example (more flexible for getting useful options used in creating dmg):
-```
+Function example (more flexible for getting useful options used in creating DMG):
+```javascript
 function (opts) {
    return [ { x: 448, y: 344, type: 'link', path: '/Applications'},
             { x: 192, y: 344, type: 'file', path: opts.appPath} ];
@@ -107,12 +112,6 @@ Additional options to pass through to [`appdmg`](https://npm.im/appdmg)
 
 You can use this to set additional features like `background-color` and
 `code-sign`.  See the docs of the `appdmg` module for all possible options.
-
-
-##### callback
-
-`err` - *Error*
-Contains errors if any.
 
 ## License
 
