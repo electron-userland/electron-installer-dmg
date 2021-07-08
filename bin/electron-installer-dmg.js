@@ -21,6 +21,7 @@ const [appPath, name] = args._;
 
 args.appPath = appPath;
 args.name = name;
+args.dmgPath = args.dmgPath || args.out;
 
 if (args.help || args.h || !args.appPath || !args.name) {
   console.error(usage);
@@ -35,7 +36,6 @@ createDMG(args, (err) => {
   if (err) {
     console.error(err);
     process.exit(1);
-    return;
   }
   console.error(`Wrote DMG to:\n${args.dmgPath}`);
 });
