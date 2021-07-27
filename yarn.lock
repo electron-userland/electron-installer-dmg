@@ -67,10 +67,10 @@
   resolved "https://registry.yarnpkg.com/@tsd/typescript/-/typescript-4.3.5.tgz#0e0669bbd82a399a06c825c22dc63d56debe70a2"
   integrity sha512-Xwxv8bIwyI3ggPz9bwoWEoiaz79MJs+VGf27S1N2tapfDVo60Lz741j5diL9RwszZSXt6IkTAuw7Lai7jSXRJg==
 
-"@types/appdmg@0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@types/appdmg/-/appdmg-0.5.1.tgz#aef43f758f73654176047dfce9387bdbb8e8a3f7"
-  integrity sha512-4J4PaChabmFplb+W2TYc3mlkd6Cfnc6RFphs2XZU6y8tigx22H8kEHQokWiZ+oRl3JuDpt1iQwblzz5tmfDFrQ==
+"@types/appdmg@^0.5.1":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@types/appdmg/-/appdmg-0.5.2.tgz#d59832e55774d0cc0efa51d032e67b483822e7dd"
+  integrity sha512-4mxuTOqzfj97aCSjEAW5TYf/9DY9IvjUQX948HTY7xr3RJh++SghhwGoeogc6H8DC/MD1nijlQGovgSNQxog9A==
   dependencies:
     "@types/node" "*"
 
