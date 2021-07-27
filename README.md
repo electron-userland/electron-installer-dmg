@@ -87,7 +87,7 @@ Array example:
 [ { x: 448, y: 344, type: 'link', path: '/Applications'},
   { x: 192, y: 344, type: 'file', path: '/path/to/application.app'} ]
 ```
-Function example (more flexible for getting useful options used in creating DMG):
+Function example (more flexible for getting useful options used in creating a DMG):
 ```javascript
 function (opts) {
    return [ { x: 448, y: 344, type: 'link', path: '/Applications'},
