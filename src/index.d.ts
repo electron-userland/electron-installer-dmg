@@ -59,6 +59,9 @@ declare namespace createDMG {
   }
 }
 
+/**
+ * Generate a DMG for a bundled & customized Electron app.
+ */
 declare function createDMG(createOptions: createDMG.DMGOptions): Promise<createDMG.DMGOptions>;
 
 export = createDMG;
