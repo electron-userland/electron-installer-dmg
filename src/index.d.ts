@@ -2,7 +2,7 @@ import appdmg = require('appdmg');
 
 declare namespace createDMG {
     /**
-     * The content that will appear in the window when user opens the .dmg file.
+     * The content that will appear in the window when the user opens the .dmg file.
      */
     interface Content {
       path: string;
