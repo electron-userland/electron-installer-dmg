@@ -32,11 +32,6 @@ declare namespace createDMG {
     contents?: Content[] | ((opts?: DMGOptions) => Content[]);
     /** Enable debug message output. */
     debug?: boolean;
-    /**
-     * @deprecated
-     * The directory to put the DMG into. [Default: `process.cwd()`].
-     */
-    dmgPath?: string;
     /** Disk image format. [Default: `UDZO`]. */
     format?: 'UDRW' | 'UDRO' | 'UDCO' | 'UDZO' | 'UDBZ' | 'ULFO';
     /** Path to the icon to use for the app in the DMG window. */
@@ -45,11 +40,6 @@ declare namespace createDMG {
     iconSize?: number;
     /** The application name. */
     name: string;
-    /**
-     * @deprecated
-     * The application name.
-     */
-    productName?: string;
     /** The directory to put the DMG into. [Default: `process.cwd()`]. */
     out?: string;
     /** Overwrite an existing DMG file if if already exists. */
