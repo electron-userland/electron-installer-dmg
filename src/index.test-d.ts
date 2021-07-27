@@ -1,22 +1,19 @@
+import {expectType} from 'tsd';
 import createDMG = require('.');
 
-createDMG({
+expectType<Promise<createDMG.DMGOptions>>(createDMG({
   appPath: '',
   name: 'my dmg',
-}).then(() => {
-  // ...
-});
+}));
 
-createDMG({
+expectType<Promise<createDMG.DMGOptions>>(createDMG({
   contents: [
       { x: 448, y: 344, type: 'link', path: '/Applications' },
       { x: 192, y: 344, type: 'file', path: '/path/to/application.app' },
   ],
   appPath: '',
   name: 'my dmg',
-}).then(() => {
-  // ...
-});
+}));
 
 function getContents(): createDMG.Content[] {
   return [
@@ -25,15 +22,13 @@ function getContents(): createDMG.Content[] {
   ];
 }
 
-createDMG({
+expectType<Promise<createDMG.DMGOptions>>(createDMG({
   contents: getContents,
   appPath: '',
   name: 'my dmg',
-}).then(() => {
-  // ...
-});
+}));
 
-createDMG({
+expectType<Promise<createDMG.DMGOptions>>(createDMG({
   appPath: '',
   format: 'UDBZ',
   additionalDMGOptions: {
@@ -42,6 +37,4 @@ createDMG({
       },
   },
   name: 'my dmg',
-}).then(() => {
-  // ...
-});
+}))
