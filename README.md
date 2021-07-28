@@ -1,4 +1,4 @@
-# electron-installer-dmg [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
+# electron-installer-dmg [![CI status][actions_img]][actions_url] [![npm][npm_img]][npm_url]
 
 > Create DMG installers for your electron apps using [appdmg][appdmg].
 
@@ -117,10 +117,10 @@ You can use this to set additional features like `background-color` and
 
 Apache 2.0
 
-[travis_img]: https://travis-ci.org/electron-userland/electron-installer-dmg.svg?branch=master
-[travis_url]: https://travis-ci.org/electron-userland/electron-installer-dmg
+[actions_img]: https://github.com/electron-userland/electron-installer-dmg/actions/workflows/ci.yml/badge.svg
+[actions_url]: https://github.com/electron-userland/electron-installer-dmg/actions/workflows/ci.yml
 [npm_img]: https://img.shields.io/npm/v/electron-installer-dmg.svg
 [npm_url]: https://npm.im/electron-installer-dmg
-[electron-packager]: https://github.com/electron-userland/electron-packager
+[electron-packager]: https://github.com/electron/electron-packager
 [appdmg]: https://github.com/LinusU/node-appdmg
 [spec]: https://github.com/LinusU/node-appdmg#specification
