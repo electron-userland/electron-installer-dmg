@@ -34,8 +34,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "mocha": "^6.1.4",
-    "rimraf": "^2.6.2"
+    "mocha": "^6.1.4"
   },
   "keywords": [
     "mongodb.js",

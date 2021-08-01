@@ -3,7 +3,6 @@ const { download } = require('@electron/get');
 const { existsSync, promises: fs } = require('fs');
 const path = require('path');
 const { promisify } = require('util');
-const rimraf = require('rimraf');
 const zip = require('cross-zip');
 
 const unzip = promisify(zip.unzip);
