@@ -1,5 +1,5 @@
 const debug = require('debug')('electron-installer-dmg');
-const fs = require('fs-extra');
+const { existsSync, promises: fs } = require('fs');
 const os = require('os');
 const path = require('path');
 
@@ -84,7 +84,7 @@ module.exports = async (immutableOpts) => {
 
   opts.dmgPath = path.resolve(opts.dmgPath || path.join(opts.out, `${opts.name}.dmg`));
 
-  await fs.ensureDir(path.dirname(opts.dmgPath));
+  await fs.mkdir(path.dirname(opts.dmgPath), { recursive: true });
   opts.format = opts.format || 'UDZO';
 
   opts.contents = opts.contents || [
@@ -106,7 +106,7 @@ module.exports = async (immutableOpts) => {
     opts.contents = opts.contents(opts);
   }
 
-  if (await fs.pathExists(opts.dmgPath)) {
+  if (existsSync(opts.dmgPath)) {
     if (!opts.overwrite) {
       debug('DMG already exists at `%s` and overwrite is false', opts.dmgPath);
       const msg = `DMG already exists.  Run electron-installer-dmg again with \

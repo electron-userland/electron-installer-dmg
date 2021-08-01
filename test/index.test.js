@@ -1,6 +1,6 @@
 const assert = require('assert');
 const { download } = require('@electron/get');
-const fs = require('fs-extra');
+const { existsSync, promises: fs } = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 const rimraf = require('rimraf');
@@ -38,13 +38,11 @@ describe('electron-installer-dmg', () => {
         dmgPath,
         name: 'Test App',
       });
-      assert(await fs.pathExists(dmgPath), 'dmg should exist');
+      assert(existsSync(dmgPath), 'dmg should exist');
     });
 
-    afterEach(() => fs.unlink(`${appPath}.dmg`));
+    afterEach(async () => fs.unlink(`${appPath}.dmg`));
 
-    after(() => {
-      rimraf.sync(appPath);
-    });
+    after(async () => fs.rmdir(appPath, { recursive: true }));
   });
 });
