@@ -30,7 +30,7 @@ describe('electron-installer-dmg', () => {
     });
 
     it('should succeed in creating a DMG', async function testCreate() {
-      this.timeout(1 * MINUTES_IN_MS);
+      this.timeout(2 * MINUTES_IN_MS);
       const createDMG = require('../'); // eslint-disable-line global-require
       const dmgPath = path.resolve(__dirname, 'fixture.dmg');
       await createDMG({
