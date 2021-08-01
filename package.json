@@ -18,7 +18,7 @@
     "electron-installer-dmg": "bin/electron-installer-dmg.js"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 12.13.0"
   },
   "dependencies": {
     "debug": "^4.1.1",
