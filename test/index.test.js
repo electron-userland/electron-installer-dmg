@@ -2,10 +2,7 @@ const assert = require('assert');
 const { download } = require('@electron/get');
 const { existsSync, promises: fs } = require('fs');
 const path = require('path');
-const { promisify } = require('util');
-const zip = require('cross-zip');
-
-const unzip = promisify(zip.unzip);
+const unzip = require('extract-zip');
 
 const MINUTES_IN_MS = 60 * 1000;
 
@@ -25,7 +22,7 @@ describe('electron-installer-dmg', () => {
       this.timeout(2 * MINUTES_IN_MS);
 
       const zipPath = await download('2.0.4');
-      await unzip(zipPath, appPath);
+      await unzip(zipPath, { dir: appPath });
     });
 
     it('should succeed in creating a DMG', async function testCreate() {

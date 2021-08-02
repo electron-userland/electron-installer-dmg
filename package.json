@@ -30,10 +30,10 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@electron/get": "^1.1.0",
-    "cross-zip": "^2.1.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
+    "extract-zip": "^2.0.1",
     "mocha": "^6.1.4"
   },
   "keywords": [
