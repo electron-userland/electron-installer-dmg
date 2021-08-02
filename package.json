@@ -20,6 +20,12 @@
   "engines": {
     "node": ">= 12.13.0"
   },
+  "files": [
+    "bin",
+    "resources",
+    "src",
+    "usage.txt"
+  ],
   "dependencies": {
     "debug": "^4.3.2",
     "minimist": "^1.1.1"
