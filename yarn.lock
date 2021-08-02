@@ -99,9 +99,9 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
     color-convert "^1.9.0"
 
 appdmg@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/appdmg/-/appdmg-0.6.0.tgz#81b3beab624ab458e6104d87c5cfa4b172203821"
-  integrity sha512-vDz8cMf5c6BfoS72OmmHzzuxG5DFVDM6YCAkscjYh3GASGEBBRCZ10Bn515ZPSPHOpfI9Xu3MlApbd49C58pJg==
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/appdmg/-/appdmg-0.6.2.tgz#3acd6246ffb25ae3e109bdba564aa3ddce1b64a8"
+  integrity sha512-mbJyAxn2/JmDpckNpXDU4AQ/XF7fltOyrLcETZxGfYwESt0NdCjQB8L2vIxxAyZKT0R/c0aSzb9yE+P2yDh9TQ==
   dependencies:
     async "^1.4.2"
     ds-store "^0.1.5"
