@@ -1,12 +1,8 @@
 const assert = require('assert');
 const { download } = require('@electron/get');
-const fs = require('fs-extra');
+const { existsSync, promises: fs } = require('fs');
 const path = require('path');
-const { promisify } = require('util');
-const rimraf = require('rimraf');
-const zip = require('cross-zip');
-
-const unzip = promisify(zip.unzip);
+const unzip = require('extract-zip');
 
 const MINUTES_IN_MS = 60 * 1000;
 
@@ -16,7 +12,7 @@ describe('electron-installer-dmg', () => {
   });
 
   it('should be requireable', () => {
-    assert.doesNotThrow(() => require('../')); // eslint-disable-line global-require
+    assert.doesNotThrow(() => require('..')); // eslint-disable-line global-require
   });
 
   describe('with app', () => {
@@ -26,25 +22,23 @@ describe('electron-installer-dmg', () => {
       this.timeout(2 * MINUTES_IN_MS);
 
       const zipPath = await download('2.0.4');
-      await unzip(zipPath, appPath);
+      await unzip(zipPath, { dir: appPath });
     });
 
     it('should succeed in creating a DMG', async function testCreate() {
       this.timeout(2 * MINUTES_IN_MS);
-      const createDMG = require('../'); // eslint-disable-line global-require
+      const createDMG = require('..'); // eslint-disable-line global-require
       const dmgPath = path.resolve(__dirname, 'fixture.dmg');
       await createDMG({
         appPath,
         dmgPath,
         name: 'Test App',
       });
-      assert(await fs.pathExists(dmgPath), 'dmg should exist');
+      assert(existsSync(dmgPath), 'dmg should exist');
     });
 
-    afterEach(() => fs.unlink(`${appPath}.dmg`));
+    afterEach(async () => fs.unlink(`${appPath}.dmg`));
 
-    after(() => {
-      rimraf.sync(appPath);
-    });
+    after(async () => fs.rmdir(appPath, { recursive: true }));
   });
 });

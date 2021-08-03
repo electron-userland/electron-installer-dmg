@@ -2,6 +2,10 @@
 
 > Create DMG installers for your electron apps using [appdmg][appdmg].
 
+## Requirements
+
+This module requires using macOS and Node 12 (LTS) or above.
+
 ## Installation
 
 **For use in npm scripts:**

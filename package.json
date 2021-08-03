@@ -18,11 +18,16 @@
     "electron-installer-dmg": "bin/electron-installer-dmg.js"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 12.13.0"
   },
+  "files": [
+    "bin",
+    "resources",
+    "src",
+    "usage.txt"
+  ],
   "dependencies": {
-    "debug": "^4.1.1",
-    "fs-extra": "^8.0.1",
+    "debug": "^4.3.2",
     "minimist": "^1.1.1"
   },
   "optionalDependencies": {
@@ -31,12 +36,11 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@electron/get": "^1.1.0",
-    "cross-zip": "^2.1.5",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "mocha": "^6.1.4",
-    "rimraf": "^3.0.2"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "extract-zip": "^2.0.1",
+    "mocha": "^9.0.3"
   },
   "keywords": [
     "mongodb.js",

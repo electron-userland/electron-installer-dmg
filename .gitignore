@@ -1,6 +1,6 @@
+*-error.log
 node_modules/
 .DS_Store
 npm-debug.log
 package-lock.json
-yarn.lock
 test/fixture*
