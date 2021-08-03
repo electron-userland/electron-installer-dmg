@@ -12,7 +12,7 @@ describe('electron-installer-dmg', () => {
   });
 
   it('should be requireable', () => {
-    assert.doesNotThrow(() => require('../')); // eslint-disable-line global-require
+    assert.doesNotThrow(() => require('..')); // eslint-disable-line global-require
   });
 
   describe('with app', () => {
@@ -27,7 +27,7 @@ describe('electron-installer-dmg', () => {
 
     it('should succeed in creating a DMG', async function testCreate() {
       this.timeout(2 * MINUTES_IN_MS);
-      const createDMG = require('../'); // eslint-disable-line global-require
+      const createDMG = require('..'); // eslint-disable-line global-require
       const dmgPath = path.resolve(__dirname, 'fixture.dmg');
       await createDMG({
         appPath,

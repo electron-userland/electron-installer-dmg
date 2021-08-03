@@ -14,7 +14,7 @@ if (args.debug) {
   process.env.DEBUG = 'electron-installer-dmg';
 }
 
-const createDMG = require('../');
+const createDMG = require('..');
 const pkg = require('../package.json');
 
 const [appPath, name] = args._;
