@@ -23,8 +23,17 @@ jobs:
           cache: yarn
       - name: Install
         run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint
       - name: Test
-        run: yarn test
+        run: yarn coverage
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v2.0.1
+        with:
+          file: ./coverage/lcov.info
+          env_vars: NODE_VERSION
+        env:
+          NODE_VERSION: ${{ matrix.node-version }}
 
   automerge:
     needs: build
