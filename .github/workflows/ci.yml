@@ -25,6 +25,13 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Test
         run: yarn test
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v2.0.1
+        with:
+          file: ./coverage/lcov.info
+          env_vars: NODE_VERSION
+        env:
+          NODE_VERSION: ${{ matrix.node-version }}
 
   automerge:
     needs: build
