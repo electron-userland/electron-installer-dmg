@@ -22,7 +22,8 @@ async function build(opts) {
 
   debug('DMG spec is:\n', spec);
 
-  const specPath = path.resolve(os.tmpdir(), 'appdmg.json');
+  const specDir = await fs.mkdtemp(path.join(os.tmpdir(), 'electron-installer-dmg-'));
+  const specPath = path.join(specDir, 'appdmg.json');
   debug('writing config to `%s`', specPath);
 
   await fs.writeFile(specPath, specContents);
@@ -37,8 +38,8 @@ async function build(opts) {
       }
     }).on('finish', async () => {
       debug('appdmg finished!');
-      debug('cleaning up temp config at `%s`', specPath);
-      await fs.unlink(specPath);
+      debug('cleaning up temp config at `%s`', specDir);
+      await fs.rmdir(specDir, { recursive: true, maxRetries: 2 });
       resolve(opts);
     }).on('error', reject);
   });
