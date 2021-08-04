@@ -1,4 +1,8 @@
-# electron-installer-dmg [![CI status][actions_img]][actions_url] [![npm][npm_img]][npm_url]
+# electron-installer-dmg
+
+[![CI status][actions_img]][actions_url]
+[![npm][npm_img]][npm_url]
+[![Code coverage](https://codecov.io/gh/electron-userland/electron-installer-dmg/branch/main/graph/badge.svg?token=xtM3VTig9I)](https://codecov.io/gh/electron-userland/electron-installer-dmg)
 
 > Create DMG installers for your electron apps using [appdmg][appdmg].
 
