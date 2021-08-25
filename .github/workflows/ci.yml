@@ -28,7 +28,7 @@ jobs:
       - name: Test
         run: yarn coverage
       - name: Upload code coverage to Codecov
-        uses: codecov/codecov-action@v2.0.2
+        uses: codecov/codecov-action@v2.0.3
         with:
           file: ./coverage/lcov.info
           env_vars: NODE_VERSION
