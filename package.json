@@ -32,7 +32,7 @@
     "minimist": "^1.1.1"
   },
   "optionalDependencies": {
-    "appdmg": "^0.6.0"
+    "appdmg": "~0.6.4"
   },
   "license": "Apache-2.0",
   "devDependencies": {
