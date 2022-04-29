@@ -21,7 +21,7 @@ describe('electron-installer-dmg', () => {
     before(async function downloadElectron() {
       this.timeout(2 * MINUTES_IN_MS);
 
-      const zipPath = await download('2.0.4');
+      const zipPath = await download('18.2.0');
       await unzip(zipPath, { dir: appPath });
     });
 
