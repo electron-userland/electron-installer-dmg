@@ -8,16 +8,18 @@ async function build(opts) {
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies, import/no-unresolved
   const appdmg = require('appdmg');
   const additionalDMGOptions = opts.additionalDMGOptions || {};
+  const icon = opts.icon ? { icon: opts.icon } : {};
 
   const spec = {
     ...additionalDMGOptions,
     title: opts.title || opts.productName || opts.name,
     contents: opts.contents,
-    icon: opts.icon,
     'icon-size': opts['icon-size'],
     background: opts.background,
     format: opts.format,
+    ...icon,
   };
+
   const specContents = JSON.stringify(spec, null, 2);
 
   debug('DMG spec is:\n', spec);
@@ -56,9 +58,8 @@ module.exports = async (immutableOpts) => {
   } else {
     opts.background = path.resolve(opts.background);
   }
-  if (!opts.icon) {
-    opts.icon = path.resolve(__dirname, '../resources/mac/atom.icns');
-  } else {
+
+  if (opts.icon) {
     opts.icon = path.resolve(opts.icon);
   }
 
