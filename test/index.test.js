@@ -39,6 +39,6 @@ describe('electron-installer-dmg', () => {
 
     afterEach(async () => fs.unlink(`${appPath}.dmg`));
 
-    after(async () => fs.rmdir(appPath, { recursive: true }));
+    after(async () => fs.rm(appPath, { recursive: true }));
   });
 });

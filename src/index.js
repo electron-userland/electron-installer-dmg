@@ -39,7 +39,7 @@ async function build(opts) {
     }).on('finish', async () => {
       debug('appdmg finished!');
       debug('cleaning up temp config at `%s`', specDir);
-      await fs.rmdir(specDir, { recursive: true, maxRetries: 2 });
+      await fs.rm(specDir, { recursive: true, maxRetries: 2 });
       resolve(opts);
     }).on('error', reject);
   });
