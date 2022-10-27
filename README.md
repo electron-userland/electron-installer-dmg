@@ -75,17 +75,14 @@ Path to the background for the DMG window. Background image should be of size 65
 `icon` - *String*
 Path to the icon to use for the app in the DMG window.
 
+`iconSize` - *Number*
+How big to make the icon for the app in the DMG. [Default: `80`].
+
 `overwrite` - *Boolean*
 Overwrite an existing DMG file if if already exists.
 
-`debug` - *Boolean*
-Enable debug message output.
-
 `out` - *String*
 The directory to put the DMG into. [Default: `process.cwd()`].
-
-`iconSize` - *Number*
-How big to make the icon for the app in the DMG. [Default: `80`].
 
 `contents` - *Array* or *Function* that returns an Array of objects.
 The content that will appear in the window when user opens the `.dmg` file.

@@ -6,3 +6,4 @@ coverage/
 npm-debug.log
 package-lock.json
 test/fixture*
+dist

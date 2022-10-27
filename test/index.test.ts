@@ -1,10 +1,14 @@
-const assert = require('assert');
-const { download } = require('@electron/get');
-const { existsSync, promises: fs } = require('fs');
-const path = require('path');
-const unzip = require('extract-zip');
+import * as assert from 'assert';
+import { download } from '@electron/get';
+import { existsSync, promises as fs } from 'fs';
+import * as path from 'path';
+import * as unzip from 'extract-zip';
+
+import { createDMG } from '../';
 
 const MINUTES_IN_MS = 60 * 1000;
+
+const fixtureDMGPath = path.resolve(__dirname, 'fixture.dmg');
 
 describe('electron-installer-dmg', () => {
   before(() => {
@@ -16,7 +20,7 @@ describe('electron-installer-dmg', () => {
   });
 
   describe('with app', () => {
-    const appPath = path.resolve(__dirname, 'fixture');
+    const appPath = path.resolve(__dirname, 'fixture', 'Electron.app');
 
     before(async function downloadElectron() {
       this.timeout(2 * MINUTES_IN_MS);
@@ -27,17 +31,15 @@ describe('electron-installer-dmg', () => {
 
     it('should succeed in creating a DMG', async function testCreate() {
       this.timeout(2 * MINUTES_IN_MS);
-      const createDMG = require('..'); // eslint-disable-line global-require
-      const dmgPath = path.resolve(__dirname, 'fixture.dmg');
       await createDMG({
         appPath,
-        dmgPath,
+        dmgPath: fixtureDMGPath,
         name: 'Test App',
       });
-      assert(existsSync(dmgPath), 'dmg should exist');
+      assert(existsSync(fixtureDMGPath), 'dmg should exist');
     });
 
-    afterEach(async () => fs.unlink(`${appPath}.dmg`));
+    afterEach(async () => existsSync(fixtureDMGPath) ? fs.unlink(fixtureDMGPath) : null);
 
     after(async () => fs.rmdir(appPath, { recursive: true }));
   });
