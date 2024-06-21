@@ -56,7 +56,7 @@ async function buildDMG() {
   });
 }
 ```
-#### createDMG(opts, callback)
+#### createDMG(opts)
 
 ##### `opts`
 
