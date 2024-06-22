@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - name: Install
         run: yarn --frozen-lockfile
       - name: Lint
