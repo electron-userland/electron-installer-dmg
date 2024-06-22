@@ -22,6 +22,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           architecture: 'x64'
           cache: yarn
+      - name: node-gyp v10
+        run: npm install -g node-gyp@10.1.0
       - name: Install
         run: yarn --frozen-lockfile
       - name: Lint
