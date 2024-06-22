@@ -24,7 +24,8 @@ jobs:
           cache: yarn
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.2' 
+          python-version: '3.2'
+          architecture: 'x64'
       - name: Install
         run: yarn --frozen-lockfile
       - name: Lint
