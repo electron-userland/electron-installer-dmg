@@ -17,11 +17,12 @@ export type ElectronInstallerDMGOptions = {
   /**
    * The title of the produced DMG, which will be shown when mounted.
    *
-   * Defaults to the application name.
+   * @defaultValue the {@link ElectronInstallerDMGOptions.name | application name}
    */
   title?: string;
   /**
    * Path to the background image for the DMG window. Image should be of size 658x498.
+   *
    * If you need to want to add a second Retina-compatible size, add a separate `@2x` image.
    * For example, if your image is called `background.png`, create a `background@2x.png` that is
    * double the size.
@@ -32,7 +33,9 @@ export type ElectronInstallerDMGOptions = {
    */
   icon?: string;
   /**
-   * How big to make the icon for the app in the DMG. [Default: `80`].
+   * How big to make the icon for the app in the DMG.
+   *
+   * @defaultValue 80
    */
   iconSize?: number;
   /**
@@ -42,19 +45,25 @@ export type ElectronInstallerDMGOptions = {
   /**
    * The content that will appear in the window when user opens the `.dmg` file.
    *
-   * Defaults to an array of two icons: the application and the /Applications destination folder.
+   * @defaultValue An array of two icons: the application and the `/Applications` destination folder.
    */
-  contents?: appdmgType.SpecificationContents[] | ((opts: ElectronInstallerDMGOptions) => appdmgType.SpecificationContents[]);
+  contents?:
+    | appdmgType.SpecificationContents[]
+    | ((
+        opts: ElectronInstallerDMGOptions
+      ) => appdmgType.SpecificationContents[]);
   /**
-   * Disk image format. [Default: `UDZO`]
+   * Disk image format.
    *
    * Must be one of the following:
-   *  - `UDRW` :arrow_right: read/write image
-   *  - `UDRO` :arrow_right: read-only image
-   *  - `UDCO` :arrow_right: ADC-compressed image
-   *  - `UDZO` :arrow_right: zlib-compressed image
-   *  - `UDBZ` :arrow_right: bzip2-compressed image
-   *  - `ULFO` :arrow_right: lzfse-compressed image (macOS 10.11+ only)
+   *  - `UDRW` -> read/write image
+   *  - `UDRO` -> read-only image
+   *  - `UDCO` -> ADC-compressed image
+   *  - `UDZO` -> zlib-compressed image
+   *  - `UDBZ` -> bzip2-compressed image
+   *  - `ULFO` -> lzfse-compressed image (macOS 10.11+ only)
+   *
+   * @defaultValue `UDZO`
    */
   format?: 'UDRW' | 'UDRO' | 'UDCO' | 'UDZO' | 'UDBZ' | 'ULFO';
   /**
@@ -63,20 +72,26 @@ export type ElectronInstallerDMGOptions = {
    * You can use this to set additional features like `background-color` and
    * `code-sign`.  See the docs of the `appdmg` module for all possible options.
    */
-  additionalDMGOptions?: Omit<appdmgType.Specification, 'title' | 'contents' | 'icon' | 'icon-size' | 'background' | 'format'>;
-} & ({
-  /**
-   * The directory to put the DMG into. This option cannot be specified at the same time as `dmgPath`.
-   * 
-   * Defaults to `process.cwd()`.
-   */
-  out?: string;
-} | {
-  /**
-   * The full path to write the DMG to. This option cannot be specified at the same time as `out`.
-   */
-  dmgPath: string;
-});
+  additionalDMGOptions?: Omit<
+    appdmgType.Specification,
+    'title' | 'contents' | 'icon' | 'icon-size' | 'background' | 'format'
+  >;
+} & (
+  | {
+      /**
+       * The directory to put the DMG into. This option cannot be specified at the same time as `dmgPath`.
+       *
+       * Defaults to `process.cwd()`.
+       */
+      out?: string;
+    }
+  | {
+      /**
+       * The full path to write the DMG to. This option cannot be specified at the same time as `out`.
+       */
+      dmgPath: string;
+    }
+);
 
 async function build(spec: appdmgType.Specification, dmgPath: string) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
