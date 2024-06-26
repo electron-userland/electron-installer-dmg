@@ -11,6 +11,7 @@
     "url": "git://github.com/electron-userland/electron-installer-dmg.git"
   },
   "scripts": {
+    "build": "tsc",
     "coverage": "nyc --reporter=lcov --reporter=text npm run spec",
     "lint": "eslint src test --ext js,ts",
     "spec": "ts-mocha test/*.test.ts",
@@ -43,8 +44,8 @@
     "@types/minimist": "^1.2.2",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.7",
-    "@typescript-eslint/eslint-plugin": "^5.41.0",
-    "@typescript-eslint/parser": "^5.41.0",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.23.4",
@@ -52,7 +53,7 @@
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "ts-mocha": "^10.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "5.5.2"
   },
   "keywords": [
     "mongodb.js",
