@@ -21,7 +21,7 @@
     "electron-installer-dmg": "dist/electron-installer-dmg-bin.js"
   },
   "engines": {
-    "node": ">= 12.22.12"
+    "node": ">= 16"
   },
   "files": [
     "dist",
