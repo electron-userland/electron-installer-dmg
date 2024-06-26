@@ -21,7 +21,10 @@ export type ElectronInstallerDMGOptions = {
    */
   title?: string;
   /**
-   * Path to the background for the DMG window. Background image should be of size 658x498.
+   * Path to the background image for the DMG window. Image should be of size 658x498.
+   * If you need to want to add a second Retina-compatible size, add a separate `@2x` image.
+   * For example, if your image is called `background.png`, create a `background@2x.png` that is
+   * double the size.
    */
   background?: string;
   /**
@@ -31,7 +34,7 @@ export type ElectronInstallerDMGOptions = {
   /**
    * How big to make the icon for the app in the DMG. [Default: `80`].
    */
-   iconSize?: number;
+  iconSize?: number;
   /**
    * Overwrite an existing DMG file if if already exists.
    */
@@ -39,7 +42,7 @@ export type ElectronInstallerDMGOptions = {
   /**
    * The content that will appear in the window when user opens the `.dmg` file.
    *
-   * Defaults to an array of two icons, the application and the /Applications destination folder.
+   * Defaults to an array of two icons: the application and the /Applications destination folder.
    */
   contents?: appdmgType.SpecificationContents[] | ((opts: ElectronInstallerDMGOptions) => appdmgType.SpecificationContents[]);
   /**
@@ -63,12 +66,14 @@ export type ElectronInstallerDMGOptions = {
   additionalDMGOptions?: Omit<appdmgType.Specification, 'title' | 'contents' | 'icon' | 'icon-size' | 'background' | 'format'>;
 } & ({
   /**
-   * The directory to put the DMG into. [Default: `process.cwd()`].
+   * The directory to put the DMG into. This option cannot be specified at the same time as `dmgPath`.
+   * 
+   * Defaults to `process.cwd()`.
    */
   out?: string;
 } | {
   /**
-   * The full path to write the DMG to.
+   * The full path to write the DMG to. This option cannot be specified at the same time as `out`.
    */
   dmgPath: string;
 });
