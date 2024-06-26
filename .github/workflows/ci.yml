@@ -13,14 +13,17 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        node-version: [12.22.12, 14.x, 16.x]
+        node-version: [16.x, 18.x, 20.x]
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
+        with:
+          python-version: '3.11' # distutils is required by node-gyp and dropped by python core in 3.12
       - name: Install
         run: yarn --frozen-lockfile
       - name: Build
@@ -30,7 +33,7 @@ jobs:
       - name: Test
         run: yarn coverage
       - name: Upload code coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457 #v3.1.6
         with:
           file: ./coverage/lcov.info
           env_vars: NODE_VERSION
