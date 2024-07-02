@@ -12,7 +12,6 @@ Options:
   --background=<path>  Path to a PNG image to use as the background of the DMG.
   --title=<string>     The title of the produced DMG, which will be shown when mounted.
   --format=<format>    Disk image format. [Default: `UDZO`].
-  --debug              Enable debug messages.
   --overwrite          Overwrite any existing DMG.
   -h --help            Show this screen.
   --version            Show version.

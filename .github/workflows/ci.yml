@@ -26,6 +26,8 @@ jobs:
           python-version: '3.11' # distutils is required by node-gyp and dropped by python core in 3.12
       - name: Install
         run: yarn --frozen-lockfile
+      - name: Build
+        run: yarn tsc
       - name: Lint
         run: yarn lint
       - name: Test

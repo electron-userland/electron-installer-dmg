@@ -2,7 +2,8 @@
   "name": "electron-installer-dmg",
   "description": "Create DMG installers for your electron apps.",
   "version": "4.0.0",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
   "homepage": "http://github.com/electron-userland/electron-installer-dmg",
   "repository": {
@@ -10,39 +11,49 @@
     "url": "git://github.com/electron-userland/electron-installer-dmg.git"
   },
   "scripts": {
+    "build": "tsc",
     "coverage": "nyc --reporter=lcov --reporter=text npm run spec",
-    "lint": "eslint src test bin",
-    "spec": "mocha",
-    "test": "npm run lint && npm run spec"
+    "lint": "eslint src test --ext js,ts",
+    "spec": "ts-mocha test/*.test.ts",
+    "test": "tsc && npm run lint && npm run spec",
+    "prepublishOnly": "tsc"
   },
   "bin": {
-    "electron-installer-dmg": "bin/electron-installer-dmg.js"
+    "electron-installer-dmg": "dist/electron-installer-dmg-bin.js"
   },
   "engines": {
-    "node": ">= 12.13.0"
+    "node": ">= 16"
   },
   "files": [
-    "bin",
+    "dist",
     "resources",
-    "src",
     "usage.txt"
   ],
   "dependencies": {
     "debug": "^4.3.2",
-    "minimist": "^1.1.1"
+    "minimist": "^1.2.7"
   },
   "optionalDependencies": {
     "appdmg": "^0.6.4"
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@electron/get": "^1.1.0",
-    "eslint": "^7.32.0",
+    "@electron/get": "^2.0.2",
+    "@types/appdmg": "^0.5.2",
+    "@types/debug": "^4.1.7",
+    "@types/minimist": "^1.2.2",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.7",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.23.4",
     "extract-zip": "^2.0.1",
     "mocha": "^9.0.3",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "5.5.2"
   },
   "keywords": [
     "mongodb.js",
