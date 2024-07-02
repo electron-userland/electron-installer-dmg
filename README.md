@@ -46,7 +46,7 @@ Options:
 ### API
 
 ```javascript
-const createDMG = require('electron-installer-dmg');
+const { createDMG } = require('electron-installer-dmg');
 
 async function buildDMG() {
   await createDMG({
