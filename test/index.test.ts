@@ -41,6 +41,6 @@ describe('electron-installer-dmg', () => {
 
     afterEach(async () => existsSync(fixtureDMGPath) ? fs.unlink(fixtureDMGPath) : null);
 
-    after(async () => fs.rmdir(appPath, { recursive: true }));
+    after(async () => fs.rm(appPath, { recursive: true }));
   });
 });
