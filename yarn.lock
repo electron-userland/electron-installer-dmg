@@ -311,10 +311,10 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@types/appdmg@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@types/appdmg/-/appdmg-0.5.2.tgz#d59832e55774d0cc0efa51d032e67b483822e7dd"
-  integrity sha512-4mxuTOqzfj97aCSjEAW5TYf/9DY9IvjUQX948HTY7xr3RJh++SghhwGoeogc6H8DC/MD1nijlQGovgSNQxog9A==
+"@types/appdmg@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@types/appdmg/-/appdmg-0.5.5.tgz#141a4f565395acf587c3f35642a021aea97deea2"
+  integrity sha512-G+n6DgZTZFOteITE30LnWj+HRVIGr7wMlAiLWOO02uJFWVEitaPU9JVXm9wJokkgshBawb2O1OykdcsmkkZfgg==
   dependencies:
     "@types/node" "*"
 
