@@ -31,7 +31,7 @@ export type ElectronInstallerDMGOptions = {
   /**
    * Path to the icon to use for the app in the DMG window.
    */
-  icon?: string;
+  icon?: string | string[];
   /**
    * How big to make the icon for the app in the DMG.
    *
@@ -157,7 +157,15 @@ export const createDMG = async (opts: Readonly<ElectronInstallerDMGOptions>) => 
   if (!opts.icon) {
     spec.icon = path.resolve(__dirname, '../resources/mac/electron.icns');
   } else {
-    spec.icon = path.resolve(opts.icon);
+    const iconFilenames = Array.isArray(opts.icon)
+      ? opts.icon
+      : [opts.icon];
+    for (let iconFilename of iconFilenames) {
+      const ext = path.extname(iconFilename);
+      if (ext !== 'icns') {
+        spec.icon = path.resolve(iconFilename);
+      }
+    }
   }
 
   spec['icon-size'] = opts.iconSize || 80;
