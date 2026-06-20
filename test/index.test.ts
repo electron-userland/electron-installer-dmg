@@ -1,8 +1,9 @@
 import * as assert from 'assert';
+import { execFile } from 'child_process';
 import { download } from '@electron/get';
 import { existsSync, promises as fs } from 'fs';
 import * as path from 'path';
-import * as unzip from 'extract-zip';
+import { promisify } from 'util';
 
 import { createDMG } from '../';
 
@@ -26,7 +27,9 @@ describe('electron-installer-dmg', () => {
       this.timeout(2 * MINUTES_IN_MS);
 
       const zipPath = await download('18.2.0');
-      await unzip(zipPath, { dir: appPath });
+      // extract-zip hangs on Node.js >= 24, so extract with macOS's ditto
+      // instead; these tests only run on darwin.
+      await promisify(execFile)('ditto', ['-x', '-k', zipPath, appPath]);
     });
 
     it('should succeed in creating a DMG', async function testCreate() {

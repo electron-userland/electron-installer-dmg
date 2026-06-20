@@ -52,7 +52,6 @@
     "@types/minimist": "^1.2.2",
     "@types/mocha": "^10.0.0",
     "@types/node": "^22.10.2",
-    "extract-zip": "^2.0.1",
     "mocha": "^10.8.2",
     "nyc": "^15.1.0",
     "oxlint": "^1.59.0",
