@@ -8,7 +8,7 @@
 
 ## Requirements
 
-This module requires using macOS and Node 16 or above.
+This module requires using macOS and Node 22.12 or above.
 
 ## Installation
 
