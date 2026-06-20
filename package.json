@@ -37,6 +37,14 @@
   "optionalDependencies": {
     "appdmg": "^0.6.4"
   },
+  "dependenciesMeta": {
+    "fs-xattr": {
+      "built": true
+    },
+    "macos-alias": {
+      "built": true
+    }
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@electron/get": "^2.0.2",

@@ -1176,6 +1176,10 @@ __metadata:
   dependenciesMeta:
     appdmg:
       optional: true
+    fs-xattr:
+      built: true
+    macos-alias:
+      built: true
   bin:
     electron-installer-dmg: dist/electron-installer-dmg-bin.js
   languageName: unknown
