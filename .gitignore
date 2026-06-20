@@ -7,3 +7,12 @@ npm-debug.log
 package-lock.json
 test/fixture*
 dist
+
+# yarn v4
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
