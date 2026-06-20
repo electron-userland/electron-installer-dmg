@@ -2019,8 +2019,8 @@ __metadata:
   linkType: hard
 
 "macos-alias@npm:~0.2.5":
-  version: 0.2.11
-  resolution: "macos-alias@npm:0.2.11"
+  version: 0.2.12
+  resolution: "macos-alias@npm:0.2.12"
   dependencies:
     nan: "npm:^2.4.0"
     node-gyp: "npm:latest"
