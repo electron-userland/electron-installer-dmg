@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "coverage": "nyc --reporter=lcov --reporter=text yarn spec",
-    "lint": "eslint src test --ext js,ts",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "spec": "ts-mocha test/*.test.ts",
     "test": "tsc && yarn lint && yarn spec",
     "prepublishOnly": "tsc"
@@ -43,14 +44,10 @@
     "@types/minimist": "^1.2.2",
     "@types/mocha": "^10.0.0",
     "@types/node": "^22.10.2",
-    "@typescript-eslint/eslint-plugin": "6.21.0",
-    "@typescript-eslint/parser": "6.21.0",
-    "eslint": "^8.26.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.23.4",
     "extract-zip": "^2.0.1",
     "mocha": "^10.8.2",
     "nyc": "^15.1.0",
+    "oxlint": "^1.59.0",
     "ts-mocha": "^10.0.0",
     "typescript": "^5.5.2"
   },
