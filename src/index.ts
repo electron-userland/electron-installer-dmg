@@ -94,8 +94,7 @@ export type ElectronInstallerDMGOptions = {
 );
 
 async function build(spec: appdmgType.Specification, dmgPath: string) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const appdmg: typeof appdmgType = require('appdmg');
+  const { default: appdmg } = await import('appdmg');
 
   debug('DMG spec is:\n', spec);
 
@@ -149,13 +148,13 @@ export const createDMG = async (opts: Readonly<ElectronInstallerDMGOptions>) => 
   }
 
   if (!opts.background) {
-    spec.background = path.resolve(__dirname, '../resources/mac/background.png');
+    spec.background = path.resolve(import.meta.dirname, '../resources/mac/background.png');
   } else {
     spec.background = path.resolve(opts.background);
   }
 
   if (!opts.icon) {
-    spec.icon = path.resolve(__dirname, '../resources/mac/electron.icns');
+    spec.icon = path.resolve(import.meta.dirname, '../resources/mac/electron.icns');
   } else {
     spec.icon = path.resolve(opts.icon);
   }

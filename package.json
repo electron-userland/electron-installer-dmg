@@ -2,8 +2,13 @@
   "name": "electron-installer-dmg",
   "description": "Create DMG installers for your electron apps.",
   "version": "5.0.1",
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
   "homepage": "http://github.com/electron-userland/electron-installer-dmg",
   "repository": {
@@ -12,10 +17,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "coverage": "nyc --reporter=lcov --reporter=text yarn spec",
+    "coverage": "mkdir -p coverage && node --experimental-strip-types --experimental-test-coverage --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info --test test/*.test.ts",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
-    "spec": "ts-mocha test/*.test.ts",
+    "spec": "node --experimental-strip-types --test test/*.test.ts",
     "test": "tsc && yarn lint && yarn spec",
     "prepublishOnly": "tsc"
   },
@@ -50,12 +55,8 @@
     "@electron/get": "^2.0.2",
     "@types/debug": "^4.1.7",
     "@types/minimist": "^1.2.2",
-    "@types/mocha": "^10.0.0",
     "@types/node": "^22.10.2",
-    "mocha": "^10.8.2",
-    "nyc": "^15.1.0",
     "oxlint": "^1.59.0",
-    "ts-mocha": "^10.0.0",
     "typescript": "^5.5.2"
   },
   "keywords": [

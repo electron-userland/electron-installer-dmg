@@ -8,7 +8,9 @@
 
 ## Requirements
 
-This module requires using macOS and Node 22.12 or above.
+This module requires using macOS and Node 22.12 or above. It is an
+[ES module](https://nodejs.org/api/esm.html); CommonJS code on Node.js >= 22.12 can still load it
+with `require('electron-installer-dmg')`.
 
 ## Installation
 
@@ -46,7 +48,7 @@ Options:
 ### API
 
 ```javascript
-const { createDMG } = require('electron-installer-dmg');
+import { createDMG } from 'electron-installer-dmg';
 
 async function buildDMG() {
   await createDMG({
