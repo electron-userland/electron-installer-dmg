@@ -205,5 +205,8 @@ export const createDMG = async (opts: Readonly<ElectronInstallerDMGOptions>) => 
     }
   }
 
-  return build(spec, dmgPath);
+  await build(spec, dmgPath);
+
+  // Return the resolved path to the written DMG so callers (e.g. the CLI) can report it.
+  return dmgPath;
 };

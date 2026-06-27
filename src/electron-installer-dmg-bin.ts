@@ -44,8 +44,8 @@ if (args.version) {
 }
 
 createDMG(options)
-  .then(() => {
-    console.log(`Wrote DMG to:\n${args.dmgPath}`);
+  .then((dmgPath) => {
+    console.log(`Wrote DMG to:\n${dmgPath}`);
   })
   .catch((err) => {
     console.error(err);
