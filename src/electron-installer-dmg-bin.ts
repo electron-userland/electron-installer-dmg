@@ -2,15 +2,16 @@
 
 /* eslint no-console:0 no-sync:0 */
 import * as fs from 'fs';
-import * as minimist from 'minimist';
+import minimist from 'minimist';
 import * as path from 'path';
 
-import { createDMG, ElectronInstallerDMGOptions } from '.';
+import { createDMG, ElectronInstallerDMGOptions } from './index.js';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg: { version: string } = require('../package.json');
+const pkg: { version: string } = JSON.parse(
+  fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'),
+);
 
-const usage = fs.readFileSync(path.resolve(__dirname, '../usage.txt')).toString();
+const usage = fs.readFileSync(path.resolve(import.meta.dirname, '../usage.txt')).toString();
 const args = minimist<Pick<ElectronInstallerDMGOptions, 'overwrite' | 'icon' | 'background' | 'title' | 'format'> & {
   out?: string;
   'icon-size'?: string;
