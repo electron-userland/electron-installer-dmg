@@ -1,7 +1,7 @@
 {
   "name": "electron-installer-dmg",
   "description": "Create DMG installers for your electron apps.",
-  "version": "5.0.1",
+  "version": "0.0.0-development",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "author": "Lucas Hrabovsky <lucas@mongodb.com> (http://imlucas.com)",
@@ -46,6 +46,9 @@
     }
   },
   "license": "Apache-2.0",
+  "publishConfig": {
+    "provenance": true
+  },
   "devDependencies": {
     "@electron/get": "^2.0.2",
     "@types/debug": "^4.1.7",
